@@ -21,6 +21,10 @@
 			<input type="text" id="isbn" th:field="*{isbn}" />
 			<label for="price">Price</label>
 			<input type="number" step=".01" id="price" th:field="*{price}" />
+			<label for="categorylist">Category</label>
+			<select id="categorylist" th:field="*{category}" >
+       			<option th:each="Category: ${category}" th:value="${Category.categoryId}" th:text="${Category.categoryName}"></option>
+			</select>
 			<input class="btn btn-sm btn-success" type="submit" value="Save"></input>
 		</form>
 	</div>
