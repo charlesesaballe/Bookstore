@@ -52,6 +52,9 @@ public class Category {
 		this.book = book;
 	} 
 	
-	
+	@Override
+	public String toString() {
+		return "Category [categorytId=" + categoryId + ", categoryName=" + categoryName + ", book=" + book + "]";
+}
 	
 }
