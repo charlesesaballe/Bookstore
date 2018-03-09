@@ -26,6 +26,7 @@ public class BookstoreApplication {
 			catrepository.save(new Category("Non-Fiction"));
 			catrepository.save(new Category("Fantasy"));
 			catrepository.save(new Category("Romance"));
+			catrepository.save(new Category("Fiction"));
 			
 			
 			Book book1 = new Book("A Farewell to Arms", "Ernest Hemingway", "1929", "1232323-21", 10.5, catrepository.findByCategoryName("Classics").get(0));
