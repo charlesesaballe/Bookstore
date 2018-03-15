@@ -9,6 +9,8 @@ import fi.haagahelia.Bookstore.domain.Book;
 import fi.haagahelia.Bookstore.domain.BookRepository;
 import fi.haagahelia.Bookstore.domain.Category;
 import fi.haagahelia.Bookstore.domain.CategoryRepository;
+import fi.haagahelia.Bookstore.domain.User;
+import fi.haagahelia.Bookstore.domain.UserRepository;
 
 
 
@@ -20,7 +22,7 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(BookRepository repository, CategoryRepository catrepository) {
+	public CommandLineRunner demo(BookRepository repository, CategoryRepository catrepository, UserRepository userepository) {
 		return (args) -> {
 			catrepository.save(new Category("Classics"));
 			catrepository.save(new Category("Non-Fiction"));
@@ -33,6 +35,11 @@ public class BookstoreApplication {
 			Book book2 = new Book("Animal Farm", "George Orwell", "1945", "2212343-5", 12.52, catrepository.findByCategoryName("Classics").get(0));
 			repository.save(book1);
 			repository.save(book2);
+			
+			User user1 = new User("user", "$2a$10$74RcINpM45Wy9JtXaAQLGeReVkBNlIaantV7Vs3a0wUxYTLwucGDa", "USER");
+			User user2 = new User("admin", "$2a$10$AMqUeI3.bxDsNxpVPCf6Y.JQN0t5FS1aXoIGQSLzzFShylPYQFYhK", "ADMIN");
+			userepository.save(user1);
+			userepository.save(user2);
 		};
 	}
 }

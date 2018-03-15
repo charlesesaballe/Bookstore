@@ -33,6 +33,7 @@ public class BookController {
     public String login() {	
         return "login";
     }
+
 	
 	@RequestMapping("/booklist")
 	public String index(Model model) {
